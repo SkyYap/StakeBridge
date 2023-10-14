@@ -17,7 +17,8 @@ export default function Bridge() {
       display='flex'
       justifyContent='center'
       alignItems='center'
-      backgroundColor='#03DAC6'
+      sx={{ background: 'linear-gradient(#008080, #ffffff)' }}
+
       // backgroundColor='#aaeeee'
     >
       <Box
@@ -29,7 +30,7 @@ export default function Bridge() {
         alignItems='center'
         gap='1vw'
         borderRadius='2vw'
-        backgroundColor='#FFEAF0FF'
+        backgroundColor='#ffffffff'
         borderColor='#904BC0'
       >
         <Typography variant='subtitle2' gutterBottom>

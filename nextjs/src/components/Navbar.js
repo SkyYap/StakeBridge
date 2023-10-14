@@ -28,12 +28,12 @@ export default function ButtonAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position='fixed' sx={{ backgroundColor: '#FFFFFF' }}>
+      <AppBar position='fixed' sx={{ backgroundColor: 'transparent' }}>
         <Toolbar>
           <Typography
-            variant='h6'
+            variant='h5'
             component='div'
-            sx={{ flexGrow: 1, color: '#2563eB' }}
+            sx={{ flexGrow: 1, color: '#FFFFFFF2' }}
           >
             StakeBridge
           </Typography>
@@ -49,8 +49,8 @@ export default function ButtonAppBar() {
             <ButtonBase
               onClick={() => connectToWallet()}
               sx={{
-                color: '#ffffff',
-                backgroundColor: '#2563eB',
+                color: '#0d1216',
+                backgroundColor: '#FFFFFFF2',
                 borderRadius: '1.5rem',
                 fontSize: '1rem',
                 p: 1,
@@ -64,6 +64,8 @@ export default function ButtonAppBar() {
                       display: 'flex',
                       width: 'inherit',
                       height: 'inherit',
+                      background: '#a9a9a9',
+                      borderRadius: '3rem',
                     }}
                     src={`/metamask.svg`}
                   />
