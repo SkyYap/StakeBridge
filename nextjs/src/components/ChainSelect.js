@@ -38,8 +38,8 @@ export default function ChainSelect({
           },
         }}
       >
-        {chains.map((chain) => (
-          <MenuItem value={chain}>
+        {chains.map((chain, index) => (
+          <MenuItem key={index} value={chain}>
             <ChainIcon name={chain} />
           </MenuItem>
         ))}

@@ -7,6 +7,7 @@ import ButtonBase from '@mui/material/ButtonBase';
 import WalletIcon from '@mui/icons-material/Wallet';
 
 import { ethers } from 'ethers';
+import { Icon, Tooltip } from '@mui/material';
 
 export default function ButtonAppBar() {
   const [walletConnection, setWalletConnection] = React.useState();
@@ -34,29 +35,45 @@ export default function ButtonAppBar() {
             component='div'
             sx={{ flexGrow: 1, color: '#2563eB' }}
           >
-            Web3Xplorer-CrossChain
+            StakeBridge
           </Typography>
-          {walletConnection ? (
-            <Typography
-              variant='caption'
-              sx={{ color: '#2563eB', border: '1px solid', p: 1 }}
-            >
-              Your Contract Address: {walletConnection}
-            </Typography>
-          ) : (
+          <Tooltip
+            title={
+              walletConnection && (
+                <Typography variant='caption'>
+                  Address: {walletConnection}
+                </Typography>
+              )
+            }
+          >
             <ButtonBase
               onClick={() => connectToWallet()}
               sx={{
                 color: '#ffffff',
                 backgroundColor: '#2563eB',
                 borderRadius: '1.5rem',
-                fontSize: '0.7rem',
-                p: 0.6,
+                fontSize: '1rem',
+                p: 1,
+                gap: 1,
               }}
             >
-              <WalletIcon fontSize='large' sx={{ mr: 0.5 }} /> Connect Wallet
+              {walletConnection ? (
+                <Icon fontSize='large'>
+                  <img
+                    style={{
+                      display: 'flex',
+                      width: 'inherit',
+                      height: 'inherit',
+                    }}
+                    src={`/metamask.svg`}
+                  />
+                </Icon>
+              ) : (
+                <WalletIcon fontSize='large' />
+              )}
+              {walletConnection ? 'Connected' : 'Connect Wallet'}
             </ButtonBase>
-          )}
+          </Tooltip>
         </Toolbar>
       </AppBar>
     </Box>
