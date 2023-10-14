@@ -1,9 +1,7 @@
 import { Box, ButtonBase, Icon, InputBase } from '@mui/material';
-import connectToWallet from '@/lib/connectToWallet';
 
 export default function DestinationSection({
   walletAddress,
-  setWalletAddress,
   destinationAddress,
   setDestinationAddress,
 }) {
@@ -33,16 +31,9 @@ export default function DestinationSection({
           p: 1,
           gap: 1,
         }}
-        onClick={async () => {
-          if (walletAddress) {
-            setDestinationAddress(walletAddress);
-          } else {
-            setWalletAddress(await connectToWallet());
-            setDestinationAddress(walletAddress);
-          }
-        }}
+        onClick={async () => setDestinationAddress(walletAddress)}
       >
-        {walletAddress ? 'Fill with' : 'Connect'}
+        Fill with
         <Icon fontSize='large'>
           <img
             style={{
