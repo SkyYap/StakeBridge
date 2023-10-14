@@ -1,6 +1,6 @@
 import { Box, Icon } from '@mui/material';
 
-export default function ChainIcon({ name }) {
+export default function LogoIcon({ name, path }) {
   return (
     <Box display='flex' justifyContent='center' alignItems='center' gap='0.2vw'>
       <Icon>
@@ -10,7 +10,7 @@ export default function ChainIcon({ name }) {
             width: 'inherit',
             height: 'inherit',
           }}
-          src={`/${name.toLowerCase()}.svg`}
+          src={`/${path}`}
         />
       </Icon>
       {name}

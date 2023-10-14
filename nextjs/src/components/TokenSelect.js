@@ -1,14 +1,16 @@
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import LogoIcon from './LogoIcon';
 
-export default function ChainSelect({
+export default function TokenSelect({
+  disabled,
   label,
-  chains,
-  selectedChain,
-  setChain,
+  tokens,
+  selectedToken,
+  setToken,
 }) {
   return (
     <FormControl
+      disabled={disabled}
       fullWidth
       variant='filled'
       sx={{
@@ -16,7 +18,7 @@ export default function ChainSelect({
       }}
     >
       <InputLabel
-        id='chain-select-label'
+        id='token-select-label'
         sx={{
           '&.Mui-focused': {
             color: 'black',
@@ -27,10 +29,10 @@ export default function ChainSelect({
       </InputLabel>
       <Select
         disableUnderline
-        labelId='chain-select-label'
-        label='Chain'
-        value={selectedChain}
-        onChange={(event) => setChain(event.target.value)}
+        labelId='token-select-label'
+        label='Token'
+        value={selectedToken}
+        onChange={(event) => setToken(event.target.value)}
         sx={{
           borderRadius: '0.5vw',
           '& .MuiSelect-select:focus': {
@@ -38,9 +40,12 @@ export default function ChainSelect({
           },
         }}
       >
-        {chains.map((chain, index) => (
-          <MenuItem key={index} value={chain}>
-            <LogoIcon name={chain} path={`${chain}.svg`} />
+        {tokens.map((token, index) => (
+          <MenuItem key={index} value={token}>
+            <LogoIcon
+              name={token}
+              path={token === 'stbETH' ? 'ETH.svg' : `${token}.svg`}
+            />
           </MenuItem>
         ))}
       </Select>
