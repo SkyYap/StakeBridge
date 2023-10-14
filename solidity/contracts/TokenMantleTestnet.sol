@@ -7,10 +7,11 @@ import {ERC20Burnable} from "@openzeppelin/contracts/token/ERC20/extensions/ERC2
 import "hardhat/console.sol";
 
 contract TokenMantleTestnet is ERC20, ERC20Burnable {
-    // address immutable bridge = 0xe3dF62Bd6FF1847fe029ef19219976D00BE722E4;
-    address immutable bridge = process.env.BRIDGE_WALLET;
+    address bridge;
 
-    constructor() ERC20("TokenMantleTestnet", "TMT") {}
+    constructor(address _bridge) ERC20("TokenMantleTestnet", "TMT") {
+        bridge = _bridge;
+    }
 
     modifier onlyBridge() {
         require(

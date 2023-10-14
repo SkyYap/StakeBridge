@@ -4,6 +4,11 @@ require("dotenv").config()
 
 module.exports = {
   solidity: '0.8.20',
+  paths: {
+    sources: './contracts',
+    artifacts: './artifacts',
+    tests: './test',
+  },
   etherscan: {
     apiKey: "G5V97I1T37HJIMIT9THBQ28TYEDRWF8V4A",
   },
