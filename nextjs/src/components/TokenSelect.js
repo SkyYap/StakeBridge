@@ -29,7 +29,7 @@ export default function TokenSelect({
       </InputLabel>
       <Select
         disableUnderline
-        {...(!isOrigin && { IconComponent: null })}
+        {...(!isOrigin && { IconComponent: () => null })}
         labelId='token-select-label'
         label='Token'
         value={selectedToken}

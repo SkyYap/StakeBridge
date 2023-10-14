@@ -4,6 +4,7 @@ import ChainSection from './ChainSection';
 import TokenSection from './TokenSection';
 import DestinationSection from './DestinationSection';
 import InfoSection from './InfoSection';
+import depositToBridge from '@/lib/depositToBridge';
 
 export default function Bridge({ walletAddress }) {
   const [originChain, setOriginChain] = useState('Ethereum');
@@ -54,6 +55,7 @@ export default function Bridge({ walletAddress }) {
         fullWidth
         disabled={amount <= 0}
         variant='contained'
+        onClick={async () => await depositToBridge(amount)}
         sx={{
           borderRadius: '0.5vw',
           backgroundColor: '#00868D',
