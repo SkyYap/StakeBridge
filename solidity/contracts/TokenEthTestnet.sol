@@ -10,4 +10,11 @@ contract TokenEthTestnet is ERC20 {
         console.log("Tokens are successfully minted %s", _initialSupply);
         console.log("Contract deployed! Tokens sent to %s", msg.sender);
     }
+
+    function dummyFunction(uint256 _amount) external {
+        emit DummyFunctionalCalled(msg.sender, _amount);
+        console.log("_amount %s", _amount);
+    }
+
+    event DummyFunctionalCalled(address indexed caller, uint256 amount);
 }
