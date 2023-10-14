@@ -1,19 +1,30 @@
-import { useState } from 'react';
-import {
-  AppBar,
-  Box,
-  ButtonBase,
-  Icon,
-  Toolbar,
-  Tooltip,
-  Typography,
-} from '@mui/material';
-import { Wallet } from '@mui/icons-material';
-import depositToBridge from '@/lib/depositToBridge';
-import connectToWallet from '@/lib/connectToWallet';
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import ButtonBase from '@mui/material/ButtonBase';
+import WalletIcon from '@mui/icons-material/Wallet';
+
+import { ethers } from 'ethers';
+import { Icon, Tooltip } from '@mui/material';
 
 export default function ButtonAppBar() {
-  const [walletAddress, setWalletAddress] = useState();
+  const [walletConnection, setWalletConnection] = React.useState();
+
+  const connectToWallet = async () => {
+    console.log('Connecting to wallet');
+    console.log(walletConnection);
+
+    if (window.ethereum) {
+      // Check if the window.Ethereum object exists
+      // connectivity to web3 app
+      const provider = new ethers.BrowserProvider(window.ethereum);
+      const address = await provider.getSigner();
+      console.log(address.address);
+      setWalletConnection(address.address);
+    }
+  };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -26,30 +37,17 @@ export default function ButtonAppBar() {
           >
             StakeBridge
           </Typography>
-          <ButtonBase
-            onClick={depositToBridge}
-            sx={{
-              color: '#ffffff',
-              backgroundColor: '#2563eB',
-              borderRadius: '1.5rem',
-              fontSize: '1rem',
-              p: 1,
-              gap: 1,
-            }}
-          >
-            TEST
-          </ButtonBase>
           <Tooltip
             title={
-              walletAddress && (
+              walletConnection && (
                 <Typography variant='caption'>
-                  Address: {walletAddress}
+                  Address: {walletConnection}
                 </Typography>
               )
             }
           >
             <ButtonBase
-              onClick={async () => setWalletAddress(await connectToWallet())}
+              onClick={() => connectToWallet()}
               sx={{
                 color: '#ffffff',
                 backgroundColor: '#2563eB',
@@ -59,7 +57,7 @@ export default function ButtonAppBar() {
                 gap: 1,
               }}
             >
-              {walletAddress ? (
+              {walletConnection ? (
                 <Icon fontSize='large'>
                   <img
                     style={{
@@ -71,9 +69,9 @@ export default function ButtonAppBar() {
                   />
                 </Icon>
               ) : (
-                <Wallet fontSize='large' />
+                <WalletIcon fontSize='large' />
               )}
-              {walletAddress ? 'Connected' : 'Connect Wallet'}
+              {walletConnection ? 'Connected' : 'Connect Wallet'}
             </ButtonBase>
           </Tooltip>
         </Toolbar>

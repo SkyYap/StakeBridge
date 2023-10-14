@@ -3,6 +3,7 @@ import { Box, Button, Typography } from '@mui/material';
 import ChainSection from './ChainSection';
 import TokenSection from './TokenSection';
 import DestinationSection from './DestinationSection';
+import connectToWallet from '@/lib/connectToWallet';
 
 export default function Bridge() {
   const [originChain, setOriginChain] = useState('Ethereum');
@@ -16,10 +17,11 @@ export default function Bridge() {
       display='flex'
       justifyContent='center'
       alignItems='center'
-      backgroundColor='#111111'
+      backgroundColor='#03DAC6'
+      // backgroundColor='#aaeeee'
     >
       <Box
-        width='25%'
+        width='30%'
         padding='1.5vw'
         display='flex'
         flexDirection='column'
@@ -27,7 +29,8 @@ export default function Bridge() {
         alignItems='center'
         gap='1vw'
         borderRadius='2vw'
-        backgroundColor='#904BC0'
+        backgroundColor='#FFEAF0FF'
+        borderColor='#904BC0'
       >
         <Typography variant='subtitle2' gutterBottom>
           Transfer your assets in multiple chains
@@ -47,7 +50,7 @@ export default function Bridge() {
           setSelectedToken={setSelectedToken}
         />
         {/* Inserting destination address */}
-        <DestinationSection />
+        <DestinationSection walletConnection={() => connectToWallet()} />
         <Button fullWidth variant='contained'>
           Bridge
         </Button>
