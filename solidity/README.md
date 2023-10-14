@@ -21,7 +21,7 @@ npx hardhat verify --network origin <your_contract_address> <constructor_number>
 `npx hardhat run ./scripts/deploy.js --network origin`
 
 ## Contract address
-### From the result copy the deployed contract adfdress example.
+### From the result copy the deployed contract adddress example.
 `0x3b2FD59dcf8BDBB45e283D2fB98b31Fa20C810E3`
 
 ## Contract abi
