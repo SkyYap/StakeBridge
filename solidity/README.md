@@ -10,4 +10,6 @@ npx hardhat test
 REPORT_GAS=true npx hardhat test
 npx hardhat node
 npx hardhat run scripts/deploy.js
+npx hardhat verify --network origin <your_contract_address> <constructor_number>
+# for the first address for constructor number is 1000000 as in deploy_origin.js 
 ```
