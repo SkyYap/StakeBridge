@@ -16,15 +16,19 @@ npx hardhat verify --network origin <your_contract_address> <constructor_number>
 
 # For front end
 
-## Contract address
+# Run the command
+`npx hardhat compile --force`
+`npx hardhat run ./scripts/deploy.js --network origin`
 
+## Contract address
+### From the result copy the deployed contract adfdress example.
 `0x3b2FD59dcf8BDBB45e283D2fB98b31Fa20C810E3`
 
 ## Contract abi
-
+### Copy the contract abi from below path
 solidity -> artifacts -> contracts -> TokenEthTestnet.sol -> TokenEthTestnet.json
 
-## Call dummy function
+## Call dummy function in after establish connection with contract using abi and address in front end
 
 ```
 contract.methods.dummyFunction(123).send({ from: 'YOUR_WALLET_ADDRESS' }, (error, txHash) => {
