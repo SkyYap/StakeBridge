@@ -32,8 +32,8 @@ export default function Bridge({ walletAddress, setWalletAddress }) {
         backgroundColor='#ffffffff'
         borderColor='#904BC0'
       >
-        <Typography variant='subtitle2' gutterBottom>
-          Transfer your assets in multiple chains
+        <Typography variant='body2' gutterBottom color={'#008080'}>
+          Transfer your assets across multiple chains
         </Typography>
         {/* Selecting network */}
         <ChainSection

@@ -59,7 +59,7 @@ export default function Navbar({ walletAddress, setWalletAddress }) {
                         display: 'flex',
                         width: 'inherit',
                         height: 'inherit',
-                        background: '#a9a9a9',
+                        background: '#4d290d',
                         borderRadius: '3rem',
                       }}
                       src={`/metamask.svg`}
