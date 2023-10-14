@@ -1,41 +1,58 @@
-import { useState } from 'react';
-import { Box, ButtonBase, Icon, TextField } from '@mui/material';
+import { Box, ButtonBase, Icon, InputBase } from '@mui/material';
 import connectToWallet from '@/lib/connectToWallet';
 
-export default function DestinationSection({ walletConnection }) {
-  const [address, setAddress] = useState();
-
+export default function DestinationSection({
+  walletAddress,
+  setWalletAddress,
+  destinationAddress,
+  setDestinationAddress,
+}) {
   return (
     <Box width='100%' display='flex' justifyContent='space-around' gap='1vw'>
-      {/* <TextField variant='outlined' label={address} /> */}
-      <ButtonBase
-        // onClick={() => connectToWallet()}
+      <InputBase
+        fullWidth
+        variant='filled'
+        placeholder='Destination Address'
+        value={destinationAddress}
+        onChange={(event) => setDestinationAddress(event.target.value)}
         sx={{
-          color: '#ffffff',
-          backgroundColor: '#010101',
+          backgroundColor: 'rgb(0, 0, 0, 0.05)',
+          borderRadius: '0.5vw',
+          paddingLeft: '0.5vw',
+        }}
+      />
+      <ButtonBase
+        sx={{
+          width: '30%',
+          color: '#ff7900',
+          backgroundColor: '#4d290d',
           border: 'solid',
-          borderRadius: '1.5rem',
+          borderRadius: '1vw',
           borderColor: '#ff7900',
           fontSize: '1rem',
           p: 1,
           gap: 1,
         }}
+        onClick={async () => {
+          if (walletAddress) {
+            setDestinationAddress(walletAddress);
+          } else {
+            setWalletAddress(await connectToWallet());
+            setDestinationAddress(walletAddress);
+          }
+        }}
       >
-        Fill with{' '}
-        {walletConnection ? (
-          <Icon fontSize='large'>
-            <img
-              style={{
-                display: 'flex',
-                width: 'inherit',
-                height: 'inherit',
-              }}
-              src={`/metamask.svg`}
-            />
-          </Icon>
-        ) : (
-          'wallet'
-        )}
+        {walletAddress ? 'Fill with' : 'Connect'}
+        <Icon fontSize='large'>
+          <img
+            style={{
+              display: 'flex',
+              width: 'inherit',
+              height: 'inherit',
+            }}
+            src={`/metamask.svg`}
+          />
+        </Icon>
       </ButtonBase>
     </Box>
   );

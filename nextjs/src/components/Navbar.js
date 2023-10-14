@@ -1,81 +1,77 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import ButtonBase from '@mui/material/ButtonBase';
-import WalletIcon from '@mui/icons-material/Wallet';
+import {
+  AppBar,
+  Box,
+  ButtonBase,
+  Icon,
+  Toolbar,
+  Tooltip,
+  Typography,
+} from '@mui/material';
+import { Wallet } from '@mui/icons-material';
+import connectToWallet from '@/lib/connectToWallet';
 
-import { ethers } from 'ethers';
-import { Icon, Tooltip } from '@mui/material';
-
-export default function ButtonAppBar() {
-  const [walletConnection, setWalletConnection] = React.useState();
-
-  const connectToWallet = async () => {
-    console.log('Connecting to wallet');
-    console.log(walletConnection);
-
-    if (window.ethereum) {
-      // Check if the window.Ethereum object exists
-      // connectivity to web3 app
-      const provider = new ethers.BrowserProvider(window.ethereum);
-      const address = await provider.getSigner();
-      console.log(address.address);
-      setWalletConnection(address.address);
-    }
-  };
-
+export default function Navbar({ walletAddress, setWalletAddress }) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position='fixed' sx={{ backgroundColor: 'transparent' }}>
         <Toolbar>
-          <Typography
-            variant='h5'
-            component='div'
-            sx={{ flexGrow: 1, color: '#FFFFFFF2' }}
+          <Box
+            display='flex'
+            justifyContent='space-between'
+            alignContent='center'
+            sx={{
+              flexGrow: 1,
+            }}
           >
-            StakeBridge
-          </Typography>
-          <Tooltip
-            title={
-              walletConnection && (
-                <Typography variant='caption'>
-                  Address: {walletConnection}
-                </Typography>
-              )
-            }
-          >
-            <ButtonBase
-              onClick={() => connectToWallet()}
-              sx={{
-                color: '#0d1216',
-                backgroundColor: '#FFFFFFF2',
-                borderRadius: '1.5rem',
-                fontSize: '1rem',
-                p: 1,
-                gap: 1,
+            <img
+              width={207}
+              height={42}
+              src='/stakebridge-logo.png'
+              alt='stakebridge-logo'
+              style={{
+                marginTop: '5px',
               }}
+            />
+            <Tooltip
+              title={
+                walletAddress && (
+                  <Typography variant='caption'>
+                    Address: {walletAddress}
+                  </Typography>
+                )
+              }
             >
-              {walletConnection ? (
-                <Icon fontSize='large'>
-                  <img
-                    style={{
-                      display: 'flex',
-                      width: 'inherit',
-                      height: 'inherit',
-                      background: '#a9a9a9',
-                      borderRadius: '3rem',
-                    }}
-                    src={`/metamask.svg`}
-                  />
-                </Icon>
-              ) : (
-                <WalletIcon fontSize='large' />
-              )}
-              {walletConnection ? 'Connected' : 'Connect Wallet'}
-            </ButtonBase>
-          </Tooltip>
+              <ButtonBase
+                onClick={async () => setWalletAddress(await connectToWallet())}
+                sx={{
+                  color: '#0d1216',
+                  backgroundColor: '#FFFFFFF2',
+                  borderRadius: '1.5rem',
+                  fontSize: '1rem',
+                  p: 1,
+                  gap: 1,
+                }}
+              >
+                {walletAddress ? (
+                  <Icon fontSize='large'>
+                    <img
+                      style={{
+                        display: 'flex',
+                        width: 'inherit',
+                        height: 'inherit',
+                        background: '#a9a9a9',
+                        borderRadius: '3rem',
+                      }}
+                      src={`/metamask.svg`}
+                    />
+                  </Icon>
+                ) : (
+                  <Wallet fontSize='large' />
+                )}
+                {walletAddress ? 'Connected' : 'Connect Wallet'}
+              </ButtonBase>
+            </Tooltip>
+          </Box>
         </Toolbar>
       </AppBar>
     </Box>

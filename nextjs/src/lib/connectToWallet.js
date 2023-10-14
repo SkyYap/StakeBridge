@@ -5,9 +5,11 @@ export default async function connectToWallet() {
     // Check if the window.Ethereum object exists
     // connectivity to web3 app
     const provider = new ethers.BrowserProvider(window.ethereum);
-    const signer = await provider.getSigner();
 
-    return signer.address;
+    return provider
+      .getSigner()
+      .then((signer) => signer.address)
+      .catch((error) => console.log(error));
   }
   return undefined;
 }

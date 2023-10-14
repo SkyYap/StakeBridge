@@ -3,12 +3,13 @@ import { Box, Button, Typography } from '@mui/material';
 import ChainSection from './ChainSection';
 import TokenSection from './TokenSection';
 import DestinationSection from './DestinationSection';
-import connectToWallet from '@/lib/connectToWallet';
 
-export default function Bridge() {
+export default function Bridge({ walletAddress, setWalletAddress }) {
   const [originChain, setOriginChain] = useState('Ethereum');
   const [destinationChain, setDestinationChain] = useState('Mantle');
   const [selectedToken, setSelectedToken] = useState('ETH');
+  const [amount, setAmount] = useState(0);
+  const [destinationAddress, setDestinationAddress] = useState('');
 
   return (
     <Box
@@ -18,8 +19,6 @@ export default function Bridge() {
       justifyContent='center'
       alignItems='center'
       sx={{ background: 'linear-gradient(#008080, #ffffff)' }}
-
-      // backgroundColor='#aaeeee'
     >
       <Box
         width='30%'
@@ -49,11 +48,25 @@ export default function Bridge() {
           destinationChain={destinationChain}
           selectedToken={selectedToken}
           setSelectedToken={setSelectedToken}
+          amount={amount}
+          setAmount={setAmount}
         />
         {/* Inserting destination address */}
-        <DestinationSection walletConnection={() => connectToWallet()} />
-        <Button fullWidth variant='contained'>
-          Bridge
+        <DestinationSection
+          walletAddress={walletAddress}
+          setWalletAddress={setWalletAddress}
+          destinationAddress={destinationAddress}
+          setDestinationAddress={setDestinationAddress}
+        />
+        <Button
+          fullWidth
+          disabled={!amount}
+          variant='contained'
+          sx={{
+            backgroundColor: '#008080',
+          }}
+        >
+          {amount ? 'Start bridging' : 'Enter a valid amount to bridge'}
         </Button>
       </Box>
     </Box>

@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, InputBase } from '@mui/material';
 import TokenSelect from './TokenSelect';
 
 export default function TokenSection({
@@ -6,8 +6,11 @@ export default function TokenSection({
   destinationChain,
   selectedToken,
   setSelectedToken,
+  amount,
+  setAmount,
 }) {
-  const availableTokens = ['ETH', 'stbETH'];
+  const originAvailableTokens = ['ETH', 'USDT', 'DAI'];
+  const destinationAvailableTokens = ['stbETH', 'stbUSDT', 'stbDAI'];
 
   return (
     <Box
@@ -17,17 +20,47 @@ export default function TokenSection({
       justifyContent='space-around'
       gap='1vw'
     >
+      <Box
+        width='100%'
+        display='flex'
+        backgroundColor='rgb(0, 0, 0, 0.05)'
+        borderRadius='0.5vw'
+      >
+        <TokenSelect
+          isOrigin
+          label={'I want to transfer from ' + originChain}
+          tokens={originAvailableTokens}
+          selectedToken={selectedToken}
+          setSelectedToken={setSelectedToken}
+        />
+        <InputBase
+          type='number'
+          placeholder='0'
+          value={amount}
+          onChange={(event) => setAmount(event.target.value)}
+          inputProps={{
+            style: {
+              fontSize: '1.25rem',
+              textAlign: 'right',
+              paddingRight: '0.6vw',
+            },
+          }}
+          sx={{
+            '& ::-webkit-outer-spin-button': {
+              '-webkit-appearance': 'none',
+              margin: 0,
+            },
+            '& ::-webkit-inner-spin-button': {
+              '-webkit-appearance': 'none',
+              margin: 0,
+            },
+          }}
+        />
+      </Box>
       <TokenSelect
-        label={'I want to transfer from ' + originChain}
-        tokens={availableTokens}
-        selectedToken={selectedToken}
-        setSelectedToken={setSelectedToken}
-      />
-      <TokenSelect
-        disabled
         label={'And receive on ' + destinationChain}
-        tokens={availableTokens}
-        selectedToken={selectedToken === 'ETH' ? 'stbETH' : selectedToken}
+        tokens={destinationAvailableTokens}
+        selectedToken={`stb${selectedToken}`}
         setSelectedToken={setSelectedToken}
       />
     </Box>

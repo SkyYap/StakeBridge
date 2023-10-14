@@ -2,16 +2,16 @@ import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import LogoIcon from './LogoIcon';
 
 export default function TokenSelect({
-  disabled,
+  isOrigin,
   label,
   tokens,
   selectedToken,
-  setToken,
+  setSelectedToken,
 }) {
   return (
     <FormControl
-      disabled={disabled}
       fullWidth
+      disabled={!isOrigin}
       variant='filled'
       sx={{
         borderRadius: '0.5vw',
@@ -32,8 +32,9 @@ export default function TokenSelect({
         labelId='token-select-label'
         label='Token'
         value={selectedToken}
-        onChange={(event) => setToken(event.target.value)}
+        onChange={(event) => setSelectedToken(event.target.value)}
         sx={{
+          backgroundColor: 'rgb(0, 0, 0, 0)',
           borderRadius: '0.5vw',
           '& .MuiSelect-select:focus': {
             borderRadius: '0.5vw',
@@ -42,10 +43,7 @@ export default function TokenSelect({
       >
         {tokens.map((token, index) => (
           <MenuItem key={index} value={token}>
-            <LogoIcon
-              name={token}
-              path={token === 'stbETH' ? 'ETH.svg' : `${token}.svg`}
-            />
+            <LogoIcon name={token} path={`${token}.svg`} />
           </MenuItem>
         ))}
       </Select>
