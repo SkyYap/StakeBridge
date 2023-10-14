@@ -1,16 +1,9 @@
-import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
-import ButtonAppBar from "@/components/Navbar";
-
-const inter = Inter({ subsets: ["latin"] });
+import ButtonAppBar from '@/components/Navbar';
 
 export default function Home() {
   return (
     <div>
       <ButtonAppBar />
-      
     </div>
   );
 }
