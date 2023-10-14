@@ -3,13 +3,14 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import ButtonBase from '@mui/material/ButtonBase';
 import WalletIcon from '@mui/icons-material/Wallet';
+
 import { ethers } from 'ethers';
 
 export default function ButtonAppBar() {
   const [walletConnection, setWalletConnection] = React.useState();
+
   const connectToWallet = async () => {
     console.log('Connecting to wallet');
     console.log(walletConnection);
