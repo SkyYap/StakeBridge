@@ -29,6 +29,7 @@ export default function TokenSelect({
       </InputLabel>
       <Select
         disableUnderline
+        {...(!isOrigin && { IconComponent: null })}
         labelId='token-select-label'
         label='Token'
         value={selectedToken}
@@ -42,7 +43,13 @@ export default function TokenSelect({
         }}
       >
         {tokens.map((token, index) => (
-          <MenuItem key={index} value={token}>
+          <MenuItem
+            key={index}
+            value={token}
+            sx={{
+              paddingLeft: '12px',
+            }}
+          >
             <LogoIcon name={token} path={`${token}.svg`} />
           </MenuItem>
         ))}

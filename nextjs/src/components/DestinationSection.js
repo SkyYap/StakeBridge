@@ -18,7 +18,7 @@ export default function DestinationSection({
         sx={{
           backgroundColor: 'rgb(0, 0, 0, 0.05)',
           borderRadius: '0.5vw',
-          paddingLeft: '0.5vw',
+          paddingLeft: '0.8vw',
         }}
       />
       <ButtonBase

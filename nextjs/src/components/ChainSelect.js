@@ -39,7 +39,13 @@ export default function ChainSelect({
         }}
       >
         {chains.map((chain, index) => (
-          <MenuItem key={index} value={chain}>
+          <MenuItem
+            key={index}
+            value={chain}
+            sx={{
+              paddingLeft: '12px',
+            }}
+          >
             <LogoIcon name={chain} path={`${chain}.svg`} />
           </MenuItem>
         ))}
