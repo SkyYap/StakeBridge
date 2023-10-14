@@ -1,6 +1,7 @@
 pragma solidity ^0.8.0;
 
 import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "hardhat/console.sol";
 
 contract TokenEthTestnet is ERC20 {
     constructor(uint256 _initialSupply) ERC20("TokenEthTestnet", "TET") {
