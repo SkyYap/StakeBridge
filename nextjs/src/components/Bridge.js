@@ -9,7 +9,7 @@ import depositToBridge from '@/lib/depositToBridge';
 export default function Bridge({ walletAddress }) {
   const [originChain, setOriginChain] = useState('Ethereum');
   const [destinationChain, setDestinationChain] = useState('Mantle');
-  const [selectedToken, setSelectedToken] = useState('ETH');
+  const [selectedToken, setSelectedToken] = useState('stETH');
   const [amount, setAmount] = useState('');
   const [destinationAddress, setDestinationAddress] = useState('');
 

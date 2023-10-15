@@ -9,8 +9,8 @@ export default function TokenSection({
   amount,
   setAmount,
 }) {
-  const originAvailableTokens = ['ETH', 'USDT', 'DAI'];
-  const destinationAvailableTokens = ['stbETH', 'stbUSDT', 'stbDAI'];
+  const originAvailableTokens = ['stETH', 'stMATIC', 'stSOL'];
+  const destinationAvailableTokens = ['sbETH', 'sbMATIC', 'sbSOL'];
 
   return (
     <Box
@@ -60,7 +60,7 @@ export default function TokenSection({
       <TokenSelect
         label={'And receive on ' + destinationChain}
         tokens={destinationAvailableTokens}
-        selectedToken={`stb${selectedToken}`}
+        selectedToken={`sb${selectedToken.substring(2)}`}
         setSelectedToken={setSelectedToken}
       />
     </Box>
