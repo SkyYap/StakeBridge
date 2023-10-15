@@ -20,7 +20,7 @@ export default async function depositToBridge(amountToDeposit) {
     // });
 
     // missing revert data
-    tx = await contract.dummyFunction(
+    const tx = await contract.dummyFunction(
       parseUnits(amountToDeposit.toString(), 18),
     );
 
