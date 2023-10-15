@@ -4,7 +4,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>StakeBridge</title>
+        <title>Stake Bridge</title>
       </Head>
       <Component {...pageProps} />
     </>

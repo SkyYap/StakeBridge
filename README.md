@@ -1,4 +1,4 @@
-# StakeBridge
+# Stake Bridge
 
 Your gateway to bridge tha gap of staked assets across chains!
 Seamlessly transfer your staked tokens to emerging chains like Mantle and Taiko!
