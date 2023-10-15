@@ -10,13 +10,13 @@ export default function Bridge({ walletAddress }) {
   const [originChain, setOriginChain] = useState('Ethereum');
   const [destinationChain, setDestinationChain] = useState('Mantle');
   const [selectedToken, setSelectedToken] = useState('ETH');
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState('');
   const [destinationAddress, setDestinationAddress] = useState('');
 
   return (
     <Box
       width='30%'
-      marginTop='10vh'
+      marginTop='3%'
       padding='1.5vw'
       display='flex'
       flexDirection='column'
