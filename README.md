@@ -6,9 +6,9 @@ The process is as follows: </br>
 
 - the staked tokens are deposited to a designated address on the origin chain.
 - this triggers the validator, which makes sure that the funds were received.
-- the StakeBridged tokens (sbETH, sbMATIC or sbSOL) will now be sent to the address on the destination chain.
+- the StakeBridged tokens (sbstETH, sbstMATIC or sbstSOL) will now be sent to the address on the destination chain.
 
-This project is built at ETHKL 2023 Hackathon.
+This project was built at ETHKL 2023 Hackathon.
 
 # Tech Stack
 
