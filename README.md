@@ -1,4 +1,4 @@
-# Stake Bridge
+# Stake Bridge | ETHKL 2023 Taiko Best dApp Bounty Winner
 
 Your gateway to bridge the gap of staked assets across chains! </br>
 Seamlessly transfer your staked tokens to emerging chains like Mantle and Taiko! </br>
