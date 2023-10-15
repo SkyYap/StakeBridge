@@ -1,14 +1,14 @@
 # Stake Bridge
 
-Your gateway to bridge tha gap of staked assets across chains!
-Seamlessly transfer your staked tokens to emerging chains like Mantle and Taiko!
-The process is as follows:
+Your gateway to bridge tha gap of staked assets across chains! </br>
+Seamlessly transfer your staked tokens to emerging chains like Mantle and Taiko! </br>
+The process is as follows: </br>
 
 - the staked tokens are deposited to a designated address on the origin chain.
 - this triggers the validator, which makes sure that the funds were received.
 - the StakeBridged tokens (sbETH, sbMATIC or sbSOL) will now be sent to the address on the destination chain.
 
-This project is built during the ETHKL Hackathon 2023.
+This project is built at ETHKL 2023 Hackathon.
 
 # Tech Stack
 
