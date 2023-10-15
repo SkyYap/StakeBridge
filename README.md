@@ -8,7 +8,7 @@ The process is as follows: </br>
 - this triggers the validator, which makes sure that the funds were received.
 - the StakeBridged tokens (sbstETH, sbstMATIC or sbstSOL) will now be sent to the address on the destination chain.
 
-This project was built at ETHKL 2023 Hackathon.
+This project is one of the winners of the Taiko Best dApp Bounty at ETHKL 2023 Hackathon.
 
 # Tech Stack
 
