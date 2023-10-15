@@ -1,0 +1,6 @@
+{
+    "prettier.configPath": "nextjs/.prettierrc",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.formatOnSave": true
+}
