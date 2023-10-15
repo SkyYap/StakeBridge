@@ -68,7 +68,7 @@ npm --prefix ./nextjs start
 
 # References
 
-- [Solidity](https://docs.soliditylang.org/) | smart contracts
-- [Hardhat](https://hardhat.org/docs) | Ethereum development environment
-- [Next.js](https://nextjs.org/docs) | frontend
-- [Material UI](https://mui.com/material-ui/getting-started/) | styling
+- [Solidity](https://docs.soliditylang.org/)
+- [Hardhat](https://hardhat.org/docs)
+- [Next.js](https://nextjs.org/docs)
+- [Material UI](https://mui.com/material-ui/getting-started/)
