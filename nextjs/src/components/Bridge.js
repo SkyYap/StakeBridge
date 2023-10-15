@@ -16,6 +16,7 @@ export default function Bridge({ walletAddress }) {
   return (
     <Box
       width='30%'
+      marginTop='10vh'
       padding='1.5vw'
       display='flex'
       flexDirection='column'

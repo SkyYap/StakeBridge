@@ -9,7 +9,6 @@ export default function InfoSection({ selectedToken }) {
       flexDirection='column'
       justifyContent='space-between'
       align='center'
-      gap='1vw'
       backgroundColor='rgb(0, 0, 0, 0.15)'
       borderRadius='0.5vw'
     >
@@ -38,10 +37,10 @@ export default function InfoSection({ selectedToken }) {
         </Typography>
       </Box>
       <Box paddingX='0.7vw' display='flex' justifyContent='space-around'>
-        <Typography width='50%' align='left'>
+        <Typography width='70%' align='left'>
           Maximum Transfer Amount
         </Typography>
-        <Typography width='50%' align='right'>
+        <Typography width='30%' align='right'>
           500 {selectedToken}
         </Typography>
       </Box>
