@@ -2,13 +2,16 @@
 
 Your gateway to bridge the gap of staked assets across chains! </br>
 Seamlessly transfer your staked tokens to emerging chains like Mantle and Taiko! </br>
+
 The process is as follows: </br>
 
 - the staked tokens are deposited to a designated address on the origin chain.
 - this triggers the validator, which makes sure that the funds were received.
 - the StakeBridged tokens (sbstETH, sbstMATIC or sbstSOL) will now be sent to the address on the destination chain.
 
-This project is one of the winners of the Taiko Best dApp Bounty at ETHKL 2023 Hackathon.
+This project is one of the winners of the [Taiko](https://taiko.xyz/) Best dApp Bounty at [ETHKL 2023 Hackathon](https://ethkl2023.devfolio.co/). </br>
+Here's our [presentation](https://github.com/SkyYap/StakeBridge/blob/master/presentation.pdf). </br>
+Here's our [showcase](https://devfolio.co/projects/stake-bridge-9aa1). </br>
 
 # Tech Stack
 
